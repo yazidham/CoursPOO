@@ -1,22 +1,20 @@
 <?php
 
 require_once 'car.php';
+require_once 'bicycle.php';
+require_once 'truck.php';
 
-$homer = new Car("pink", 5, "gas");
+$homer = new Car('pink', 5, 'fuel');
 
-echo "speed : " . $homer->getCurrentSpeed() . "<br>"; // la voiture est arreté
+$bart = new Bicycle ('red', 1);
 
-$homer->start(); 
+$truck = new Truck('Blue', 3, 'fuel', 100);
 
-echo "speed : " . $homer->getCurrentSpeed() . "<br>"; // la voiture démarre
-echo "the level of energy : " . $homer->getEnergyLevel() . "<br>"; // et le niveau d'essence baisse
+$truck->forward();
+echo $truck->getCurrentSpeed() . "<br>"; // le camion avance
 
-$homer->forward();
+$truck->brake();
+echo $truck->getCurrentSpeed() . "<br>"; // le camion freine 
 
-echo "speed : " . $homer->getCurrentSpeed() . "<br>"; // la voiture accélère
-echo "the level of energy : " . $homer->getEnergyLevel() . "<br>"; // et le niveau d'essence baisse 
-
-$homer->brake();
-
-echo " speed :" . $homer->getCurrentSpeed() . "<br>"; // la voiture freine jusqu'à l'arrêt 
-echo "the level of energy : " . $homer->getEnergyLevel() . "<br>"; // et le niveau d'essence s'arrête de baisser quand la voiture s'arrête complètement 
+$truck->setStorage(20);
+echo $truck->getStorage(); // contrôle le chargement 
